@@ -1,0 +1,2 @@
+rootProject.name='ontap2'
+include ':app'
