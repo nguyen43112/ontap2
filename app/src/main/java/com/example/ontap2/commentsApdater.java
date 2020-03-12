@@ -36,12 +36,20 @@ this.context = context;
         String name = String.valueOf(comments.getName());
         String email = String.valueOf(comments.getEmail());
         String body = String.valueOf(comments.getBody());
+        Boolean check = Boolean.valueOf(comments.isCheck());
         commentsHolder.tvpostId.setText(postId);
         commentsHolder.tvid.setText(id);
         commentsHolder.tvname.setText(name);
         commentsHolder.tvemail.setText(email);
         commentsHolder.tvbody.setText(body);
+        if (comments.isCheck()){
 
+            commentsHolder.tvemail.setTextColor(Color.RED);
+        }
+        else   {
+
+            commentsHolder.tvemail.setTextColor(Color.BLUE);
+        }
         commentsHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
