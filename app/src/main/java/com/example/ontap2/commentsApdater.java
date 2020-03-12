@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.ByteArrayOutputStream;
 import java.util.List;
 
 public class commentsApdater extends RecyclerView.Adapter<commentsApdater.commentsHolder> {
@@ -43,18 +44,23 @@ this.context = context;
         commentsHolder.tvemail.setText(email);
         commentsHolder.tvbody.setText(body);
         if (comments.isCheck()){
-
             commentsHolder.tvemail.setTextColor(Color.RED);
         }
         else   {
-
             commentsHolder.tvemail.setTextColor(Color.BLUE);
         }
         commentsHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                byte[] bytes = stream.toByteArray();
                 Intent intent = new Intent(context,SeconActivity.class);
-
+                intent.putExtra("postId",postId);
+                intent.putExtra("id",id);
+                intent.putExtra("name",name);
+                intent.putExtra("email",email);
+                intent.putExtra("body",body);
+                context.startActivity(intent);
             }
         });
     }
