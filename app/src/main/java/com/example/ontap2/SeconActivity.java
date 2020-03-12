@@ -20,12 +20,13 @@ public class SeconActivity extends AppCompatActivity {
         tvinfoemail = findViewById(R.id.infoemail);
         tvinfobody= findViewById(R.id.infobody);
         Intent intent = getIntent();
+        //Lay Thong tin trong List Ve
         String mpost = intent.getStringExtra("postId");
         String mid = intent.getStringExtra("id");
         String mname = intent.getStringExtra("name");
         String memail = intent.getStringExtra("email");
         String mbody = intent.getStringExtra("body");
-        ActionBar actionBar = getSupportActionBar();
+        //Ttruyen vao
         tvinfopostid.setText(mpost);
         tvinfoid.setText(mid);
         tvinfoname.setText(mname);
